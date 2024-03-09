@@ -45,6 +45,7 @@ async function deleteTodo (req, res){
 }
 
 app.get("/todo", findTodo);
+app.post("/todo", updateTodo);
 
 
 app.listen(port,() => {
