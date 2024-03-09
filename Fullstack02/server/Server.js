@@ -46,7 +46,7 @@ async function deleteTodo (req, res){
 
 app.get("/todo", findTodo);
 app.post("/todo", updateTodo);
-
+app.delete("/todo/:id", deleteTodo);
 
 app.listen(port,() => {
     console.log(`Server is running on ${port}`);
