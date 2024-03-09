@@ -8,10 +8,10 @@ const port = 3000 || process.env.port
 app.use(bodyParser.json());
 app.use(cors());
 
-app.get( '/', (req, res) => {
-    res.send("mai ke chodo")
-} );
+app.get('/', (req, res) => {
+    res.send("hello guys")
+});
 
-app.listen(port , ()=>{
+app.listen(port , () => {
     console.log(`Server is running on ${port}`);
 })
