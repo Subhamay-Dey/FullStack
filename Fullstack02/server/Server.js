@@ -21,9 +21,18 @@ async function updateTodo (req, res) {
     catch(error){res.status(400).json({message:"Error in Todo creation"})}
 }
 
+async function findTodo (req, res) {
+    try{
+        const findTodo = await todoModel.find();
+        res.json(findTodo)
+    }
+    catch(error){
+        res.status(500).json({message:'Server Error'})
+    }
+}
 
 app.get("/todo", findTodo);
-
+app.post("/todo", updateTodo);
 
 app.listen(port,() => {
     console.log(`Server is running on ${port}`);
