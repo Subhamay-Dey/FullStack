@@ -48,6 +48,10 @@ app.get("/todo", findTodo);
 app.post("/todo", updateTodo);
 app.delete("/todo/:id", deleteTodo);
 
+app.get("/get", (req, res) => {
+    app.send("hello")
+})
+
 app.listen(port,() => {
     console.log(`Server is running on ${port}`);
 })
