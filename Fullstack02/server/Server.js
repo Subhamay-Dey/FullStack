@@ -31,8 +31,22 @@ async function findTodo (req, res) {
     }
 }
 
+async function deleteTodo (req, res){
+    try{
+        const removeTodo = await todoModel.findByIdAndDelete(req.params.id);
+        if(!removeTodo){
+            return res.status(404).json({message:"No todo with the given ID was found"});
+            res.json(removeTodo)
+        }
+    }
+    catch(error){
+        res.status(500).json({message: error.message})
+    }
+}
+
 app.get("/todo", findTodo);
 app.post("/todo", updateTodo);
+app.delete("/todo/:id", deleteTodo);
 
 app.listen(port,() => {
     console.log(`Server is running on ${port}`);
