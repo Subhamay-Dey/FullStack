@@ -20,11 +20,30 @@ const Home = () => {
         getdata();
     },[])
 
+    const toaddNewTodo = async() => {
+        axios.get('http://localhost:8080/todo',{
+            title: text,
+            description: description,
+        }).then(response => {
+            setAlltodo([...alltodo, response.data]);
+            setText('');
+            setDescription('');
+        })
+    }
 
+    const todoDelete = (id) => {
+        axios.delete('http://localhost:8080/:id')
+        .then(() => {
+            setAlltodo(prevTodo => {
+                const afterDelete = prevTodo.filter(todo => todo._id !==id)
+                return  afterDelete;
+            })
+        }).catch(error => console.log(error));
+    }
 
   return (
     <>
-
+       
     </>
   )
 }
