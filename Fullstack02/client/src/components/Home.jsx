@@ -16,7 +16,9 @@ const Home = () => {
         setAlltodo(response.data);
     }
 
-    
+    useEffect(() => {
+        getdata();
+    },[])
 
 
 
