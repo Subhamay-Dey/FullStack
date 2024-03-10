@@ -1,5 +1,5 @@
 import React from 'react'
-import axios, { Axios } from 'axios'
+import axios from 'axios'
 import { useEffect } from 'react';
 // import { text } from 'body-parser';
 // import { response } from 'express';
@@ -21,7 +21,7 @@ const Home = () => {
     },[])
 
     const toaddNewTodo = async() => {
-        Axios.get('http://localhost:8080/todo',{
+        axios.post('http://localhost:8080/todo',{
             title: text,
             description: description,
         }).then(response => {
@@ -32,7 +32,7 @@ const Home = () => {
     }
 
     const todoDelete = (id) => {
-        Axios.delete('http://localhost:8080/:id')
+        axios.delete('http://localhost:8080/:id')
         .then(() => {
             setAlltodo(prevTodo => {
                 const afterDelete = prevTodo.filter(todo => todo._id !==id)
@@ -62,7 +62,7 @@ const Home = () => {
                         </div>
                     ))}
                 </div>
-                </div>
+            </div>
         </div>
     </div>
     </>
