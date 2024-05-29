@@ -19,9 +19,8 @@
             <% if(documents.length > 0) { %>
                 <% documents.forEach(function(val){ %>
                     <div class="task w-72 px-3 py-4 rounded-lg bg-zinc-800">
-                        <h1 class="text-white text-2xl tracking-tighter">Some tasks goes here</h1>
+                        <h1 class="text-white text-2xl tracking-tighter"><%= val %></h1>
                         <a href="" class="text-blue-600 inline-block mt-3">Read more..</a>
-                        <!-- <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. A in quia eveniet voluptatum?</p> -->
                     </div>
                 <% }) %>
             <% } else { %>
